@@ -7,35 +7,34 @@ and [postgraphql](https://github.com/calebmer/postgraphql)
 # How to use:
 
 ## Setup
-[Install serverless](https://github.com/serverless/serverless#quick-start)
+💾 Install [Serverless](https://github.com/serverless/serverless#quick-start)
 
+👯 Clone the repo
 ```
 git clone https://github.com/rentrop/serverless-postgraphql
 cd serverless-postgraphql
-npm install
-sls deploy -v
 ```
+
+💾 Install
+```
+npm install
+```
+
+🚀 Rebuild and Deploy
+```
+npm run rebuild-and-deploy
+```
+
 ☕ Coffeetime:  AWS takes ~10min to setup the Postgres DB
 
-### Populate DB and set endpoints:
-
-* From the result of `sls deploy` take the `pgEndpoint` and insert it in:
+* From the result of the serverless deployment take the `pgEndpoint` and insert it in:
   * `package.json`-file in the config of `PGCON` (line 7)
   * `serverless.yml`-file in the environment-variable named `PGCON` (line 21)
-* Populate the DB with the data from postgraphql's excelent [forum example](https://github.com/calebmer/postgraphql/tree/master/examples/forum). You need the `psql` cli. On Mac just follow the instructions [here](http://postgresapp.com/) to install it.
-  * `npm run populate-schema`
-  * `npm run populate-data`
-* Get the schema from the database and write it as a json file:
-  * `npm run build-schema`
 
-The last command runs a SQL query to get schema-information about the Postgres DB.
-The information is written to a JSON-file which is then loaded by the lambda function (handler.js)
-to build the graphql-schema.
-
-### Deploy & Test
-
-Deploy to Server:
-  * `sls deploy function -f graphql` or for a 'full' deployment `sls deploy`
+🚀 Rebuild and Deploy Again
+```
+npm run rebuild-and-deploy
+```
 
 You are all set now. You can now query the resulting endpoint as you wish via __POST__ and __GET__.
 
