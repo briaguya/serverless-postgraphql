@@ -17,7 +17,7 @@ sls deploy -v
 ```
 ☕ Coffeetime:  AWS takes ~10min to setup the Postgres DB
 
-## Populate DB and set endpoints:
+### Populate DB and set endpoints:
 
 * From the result of `sls deploy` take the `pgEndpoint` and insert it in:
   * `package.json`-file in the config of `PGCON` (line 7)
@@ -32,7 +32,7 @@ The last command runs a SQL query to get schema-information about the Postgres D
 The information is written to a JSON-file which is then loaded by the lambda function (handler.js)
 to build the graphql-schema.
 
-## Deploy & Test
+### Deploy & Test
 
 Deploy to Server:
   * `sls deploy function -f graphql` or for a 'full' deployment `sls deploy`
@@ -59,6 +59,20 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhIjoxLCJiIjoyLCJjI
 
 * Here you can find an [in-depth explainaition](https://github.com/calebmer/postgraphql/blob/master/examples/forum/TUTORIAL.md#authentication-and-authorization)
 * Gist on how to [query this endpoint in R](https://gist.github.com/rentrop/83cb1d8fc8593726a808032e55314019)
+
+## Running Locally
+
+💾 Install [Postgres](https://www.postgresql.org/) 🐘
+
+⌨️ Initialize the database
+```
+npm run init-local-db
+```
+
+⌨️ Run the local server
+```
+npm run local-server
+```
 
 # TODO/Ideas
 * Responde with error-codes.  
